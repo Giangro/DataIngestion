@@ -1,0 +1,24 @@
+spring:
+    application:
+        name: dataingestion
+    main:
+        banner-mode: off
+        log-startup-info: true
+    jackson:
+        deserialization:
+            fail-on-ignored-properties: false
+        default-property-inclusion: non_absent
+    datasource:        
+        url: 'jdbc:sqlserver://localhost:1433;database=SINDATADOMAIN;sendStringParametersAsUnicode=false'
+        username: 'SinLogin'
+        password: 'Passw0rd'
+        hikari.max-lifetime: 800000
+    jpa:
+      show-sql: false
+      properties.hibernate.format_sql: false
+      properties.hibernate.default_schema: TRACCE
+      hibernate.naming.physical-strategy: 'org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl'
+      properties.hibernate.dialect: 'org.hibernate.dialect.SQLServer2012Dialect'
+      hibernate.ddl-auto: validate
+
+file: 'classpath:data/descritta_nodoall_tiporiscontro.txt'
